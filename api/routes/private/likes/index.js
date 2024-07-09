@@ -1,0 +1,1 @@
+export {router as likeRouther} from './routes.js'

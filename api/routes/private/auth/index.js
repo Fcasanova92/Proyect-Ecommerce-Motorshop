@@ -1,0 +1,1 @@
+export {router as authRouther} from './routes.js'

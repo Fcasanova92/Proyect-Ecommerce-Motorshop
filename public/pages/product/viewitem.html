@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="./auth/api/checkedLogin.js"></script>
+    <link rel="stylesheet" href="../static/styles/style.css">
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/favicon/apple-touch-icon.png">
+</head>
+<body>
+    <header>
+        <nav id="primary">
+            <i class="fa-solid fa-motorcycle">LOGO</i>
+            <ul class="menu">
+                <li>
+                    <a class="link-a" href="/">Productos</a>
+                </li>
+                <li>
+                    <a class="link-a" href="../index.html#about-us">Sobre Nosotros</a>
+                </li>
+                <li>
+                    <a class="link-a" href="../index.html#">Inicio <i class="fa-solid fa-house-chimney"></i></a>
+                </li>
+                <li id="user-session" >
+                    <a class="link-a" href="/login">Ingresar<i class="fa-solid fa-right-to-bracket"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="item-viewer">
+            <div class="headline">
+                <h2 class="title-b">Visor de Productos</h2>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="social-networks">
+            <div class="headline">
+                <h3 class="title-c">Redes:</h3>
+            </div>
+            <ul class="networks">
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-twitter"></i>MotorShop Oficial</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-facebook"></i>Motorshop-Arg-Oficial</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-instagram"></i>Motorshop-Arg</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-youtube"></i>Motorshop-Channel</a>
+                </li>
+            </ul>
+        </div>
+        <div class="terms-conditions">
+            <div class="headline">
+                <h3 class="title-c">Terminos y Condiciones:</h3>
+            </div>
+            <ul class="networks">
+                <li>
+                    <a class="link-a" href="#">Politicas de la Empresa</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#">Politicas de Envío</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#">Compras</a>
+                </li>
+            </ul>
+        </div>
+        <div class="data-fiscal">
+            <div class="headline">
+                <h3 class="title-c">Data Fiscal </h3>
+            </div>
+            <img class="data-fiscal-thumbnail" src="../static/img/qr_afip/data_fiscal.png" alt="QR data fiscal">
+        </div>
+    </footer>
+    <script src="getcomments.js" type="module"></script>
+    <script type="module">
+        import {logout} from "../pages/auth/helpers/logout.js"
+        window.logout = logout;
+    </script>
+</body>

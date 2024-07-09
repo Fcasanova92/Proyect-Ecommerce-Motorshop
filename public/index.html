@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./static/styles/style.css">
+    <script type="module" src="./adapters/auth/checkedLogin.js"></script>
+    <script type="module" src="./pages/auth/helpers/session/preventBackNavigation.js"></script>
+    <title>Motorshop</title>
+    <link rel="icon" type="image/x-icon" href="./static/img/favicon/favicon.ico">
+</head>
+<body>
+    <header>
+        <nav id="primary">
+            <i class="fa-solid fa-motorcycle fa-tw">Logo</i>
+            <ul class="menu">
+                <li>
+                    <a class="link-a" href="#products">Productos</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#about-us">Sobre Nosotros</a>
+                </li>
+                <li id="user-session" >
+                    <a class="link-a" href="/login">Ingresar<i class="fa-solid fa-right-to-bracket"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <div class="banner fx-deep-shadow-static">
+            <div class="supporting-text">
+                <p class="overline">El Camino te Espera</p>
+                <h1 class="title-a">MOTORSHOP</h1>
+                <p class="body-a">Inicia tu próxima aventura con una moto que define tu estilo y personalidad. Cada modelo está hecho para aquellos que buscan algo más que un medio de transporte; buscan una experiencia de vida. Conquista la carretera, siente la brisa en tu rostro y haz que cada kilómetro cuente. ¡El camino te espera, y nosotros estamos aquí para acompañarte!</p>
+                <a class="trigger-b" href="#products">Comenzar</a>
+            </div>
+            <div class="media">
+                <img class="banner-thumbnail" src="./static/img//banners/banner.png" alt="Imagen introductoria de la web" draggable="false">
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="news">
+            <div class="headline">
+                <h2 class="title-b">Novedades</h2>
+                <a class="link-b" href="#products">Ver más...</a>
+            </div>
+            <div id="newness" class="card-track">
+            </div>
+        </section>
+        <section id="products">
+            <div class="headline">
+                <h2 class="title-b">Productos</h2>
+                <ul class="actions">
+                    <!-- <li>
+                        <form id="search-bar">
+                            <input type="text" name="query" placeholder="Que estas buscando?">
+                            <button class="trigger-b" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </li> -->
+                   <li class="toggler">
+                        <button class="trigger-a" onclick="hide('filter')">Filtrar<i class="fa-solid fa-sliders fa-fw"></i></button>
+                   </li>
+                </ul>
+            </div>
+            <form id="filter">
+                <div class="headline">
+                    <h3 class="title-c">Filtrar</h3>
+                    <ul class="actions">
+                        <li class="headline-icon body-b">
+                            <i class="fa-solid fa-sliders fa-fw"></i>
+                        </li>
+                        <li class="trigger-b" onclick="hide('filter')">
+                            <i class="fa-solid fa-xmark fa-fw"></i>
+                        </li>
+                    </ul>
+                </div>
+                <fieldset class="brands input-grid">
+                    <legend class="title-d">Marca:</legend>
+                    <input id="brand-a" type="checkbox" name="brand" value="yamaha">
+                    <label for="brand-a">Yamaha</label>
+                    <input id="brand-b" type="checkbox" name="brand" value="zanella">
+                    <label for="brand-b">Zanella</label>
+                    <input id="brand-c" type="checkbox" name="brand" value="honda">
+                    <label for="brand-c">Honda</label>
+                    <input id="brand-d" type="checkbox" name="brand" value="kawasaki">
+                    <label for="brand-d">Kawasaki</label>
+                    <input id="brand-e" type="checkbox" name="brand" value="ducati">
+                    <label for="brand-e">Ducati</label>
+                    <input id="brand-f" type="checkbox" name="brand" value="susuki">
+                    <label for="brand-f">Susuki</label>
+                    <input id="brand-g" type="checkbox" name="brand" value="triumph">
+                    <label for="brand-g">Triumph</label>
+                    <input id="brand-h" type="checkbox" name="brand" value="harley-davidson">
+                    <label for="brand-h">Harley-Davidson</label>
+                </fieldset>
+                <fieldset class="colors input-grid">
+                    <legend class="title-d">Color:</legend>
+                    <input id="color-a" type="checkbox" name="color" value="blanco">
+                    <label for="color-a">Blanco</label>
+                    <input id="color-b" type="checkbox" name="color" value="negro">
+                    <label for="color-b">Negro</label>
+                    <input id="color-c" type="checkbox" name="color" value="gris">
+                    <label for="color-c">Gris</label>
+                    <input id="color-d" type="checkbox" name="color" value="rojo">
+                    <label for="color-d">Rojo</label>
+                    <input id="color-e" type="checkbox" name="color" value="amarillo">
+                    <label for="color-e">Amarillo</label>
+                    <input id="color-f" type="checkbox" name="color" value="azul">
+                    <label for="color-f">Azul</label>
+                    <input id="color-g" type="checkbox" name="color" value="verde">
+                    <label for="color-g">Verde</label>
+                    <input id="color-h" type="checkbox" name="color" value="violeta">
+                    <label for="color-h">Violeta</label>
+                    <input id="color-i" type="checkbox" name="color" value="naranja">
+                    <label for="color-i">Naranja</label>
+                </fieldset>
+                <fieldset class="capacity input-grid">
+                    <legend class="title-d">Cilindrada:</legend>
+                    <input id="capacity-a" type="radio" name="capacity" value='{"min":0,"max":125}'>
+                    <label for="capacity-a">Menor a 125cc</label>
+                    <input id="capacity-b" type="radio" name="capacity" value='{"min":125,"max":300}'>
+                    <label for="capacity-b">125cc a 300cc</label>
+                    <input id="capacity-c" type="radio" name="capacity" value='{"min":300,"max":600}'>
+                    <label for="capacity-c">300cc a 600cc</label>
+                    <input id="capacity-d" type="radio" name="capacity" value='{"min":600,"max":2500}'>
+                    <label for="capacity-d">Mayor a 600cc</label>
+                </fieldset>
+                <fieldset class="price input-grid">
+                    <legend class="title-d">Precio:</legend>
+                    <input type="text" name="minPrice" value="" placeholder="Mínimo...">
+                    <input type="text" name="maxPrice" value="" placeholder="Máximo...">
+                </fieldset>
+                <button class="trigger-a" type="submit">Enviar</button>
+            </form>
+            <div id="viewer">
+                <div id="filter-message">
+                </div>
+                <div id="card-wrapper">
+                </div>
+                <ul id="pages">
+                    <li id="prev" class="trigger-b">Anterior</li>
+                    <li id="next" class="trigger-b">Siguiente</li>
+                </ul>
+            </div>
+        </section >
+        <section id="about-us">
+            <div class="headline">
+                <h2 class="title-b">Sobre Nosotros</h2>
+            </div>
+            <div class="company fx-deep-shadow-static">
+                <div class="headline">
+                    <h2 class="title-c">La Empresa</h2>
+                    <i class="fa-solid fa-shop"></i>
+                </div>
+                <p class="body-b">En <b><i>MOTORSHOP</i></b>, creemos que cada viaje cuenta una historia y cada motocicleta es una extensión de la pasión y el espíritu aventurero de su dueño. Desde nuestros humildes comienzos, nos hemos dedicado a ofrecer no solo motos de alta calidad, sino también experiencias inolvidables para nuestros clientes.</p>
+                <p class="body-b">Con un compromiso firme hacia la innovación y la excelencia, hemos crecido y expandido nuestras sucursales para estar más cerca de ti. Nuestras tiendas, ubicadas estratégicamente en [ciudades o regiones], están diseñadas para proporcionarte el mejor servicio y asesoramiento en la elección de tu próxima compañera de aventuras.</p>
+                <p class="body-b">Nuestra misión es ser más que una tienda de motos; queremos ser parte de tu viaje. Ya sea que estés buscando una moto para el día a día, una compañera para tus escapadas de fin de semana o el vehículo perfecto para explorar nuevos horizontes, estamos aquí para ayudarte en cada paso del camino.</p>
+                <p class="body-b">Te invitamos a visitar cualquiera de nuestras sucursales y descubrir por ti mismo la dedicación y el amor por las motos que define a <b><i>MOTORSHOP</i></b>. Estamos aquí para hacer realidad tus sueños sobre dos ruedas.</p>
+            </div>
+            <form data-id = "contact "id="contact" class="fx-deep-shadow-static" method="post">
+                <div class="headline">
+                    <h3 class="title-c">Contacto</h3>
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+                <label class="message" for="name" >asd</label>
+                <input id="name" type="text" oninput="validateInput(event)" placeholder="Nombre..." data-validate="false" data-form="contact">
+                <label class="message" for="surname"></label>
+                <input id="surname" type="text" oninput="validateInput(event)"  placeholder="Apellido..." data-validate="false" data-form="contact">
+                <label class="message" for="telephone"></label>
+                <input id="telephone" type="text" oninput="validateInput(event)" placeholder="Telefono" data-validate="false" data-form="contact">
+                <label class="message" for="email"></label>
+                <input id="email" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="contact">
+                <label class="message" for="consulta"></label>
+                <input id="consulta" type="text" placeholder="Consulta..." oninput="validateInput(event)" data-validate="false" data-form="contact">
+                <button id="send" class="trigger-a" type="submit" data-id="contact" onclick="sendMessageEmail(event)">Enviar</button>
+                <label class="message" for="send"></label>
+            </form>
+        </section>
+        <section id="branchs">
+            <div class="headline">
+                <h2 class="title-b">Sucursales</h2>
+            </div>
+            <div class="info fx-deep-shadow-static">
+                <div class="headline">
+                    <h3 class="title-c">Encuentra tu punto de venta</h3>
+                    <i class="fa-solid fa-code-branch"></i>
+                </div>
+                <p class="body-b">En cada una de nuestras sucursales, nos esforzamos por ofrecerte la mejor experiencia en la compra de motos y accesorios. Nos enorgullece brindar un servicio de atención al cliente excepcional, con personal capacitado y apasionado por el mundo del motociclismo, dispuesto a asesorarte en cada paso de tu compra.</p>
+                <p class="body-b">Nuestros amplios catálogos incluyen las últimas novedades en motos de alta gama y una variedad de accesorios para que personalices tu experiencia sobre dos ruedas. Además, cada sucursal cuenta con un taller especializado para mantenimiento y reparaciones, asegurando que tu moto esté siempre en perfectas condiciones.</p>
+                <p class="body-b">Visítanos y descubre un ambiente acogedor, donde la calidad y la confianza son nuestras prioridades. Aprovecha nuestras promociones exclusivas y financiamiento flexible, diseñado para adaptarse a tus necesidades. Ya sea que seas un experimentado motociclista o estés dando tus primeros pasos, estamos aquí para ayudarte a encontrar lo que buscas.</p>
+                <p class="body-b">Encuentra la sucursal más cercana y vive la pasión por las motos con nosotros. <b>¡Te esperamos!</b></p>
+            </div>
+            <div class="location-wrapper">
+                <article class="card fx-deep-shadow-dinamyc fx-move-up">
+                    <div class="media">
+                        <img class="card-thumbnail" src="./static/img/branchs/shop_a.png" alt="Referencia visual de la sucursal" draggable="false">
+                    </div>
+                    <div class="supporting-text">
+                        <div class="overline">Barrio N°XYZ</div>
+                        <h3 class="title-c">Sucursal A</h3>
+                        <p class="address body-b"><i class="fa-solid fa-location-dot"></i>Av. Calle P. Ahí N° 0303</p>
+                        <p class="phone body-c"><i class="fa-solid fa-phone"></i> +03 03456 4321</p>
+                    </div>
+                </article>
+                <article class="card fx-deep-shadow-dinamyc fx-move-up">
+                    <div class="media">
+                        <img class="card-thumbnail" src="./static/img/branchs/shop_a.png" alt="Referencia visual de la sucursal" draggable="false">
+                    </div>
+                    <div class="supporting-text">
+                        <div class="overline">Barrio N° XYZ</div>
+                        <h3 class="title-c">Sucursal B</h3>
+                        <p class="address body-b"><i class="fa-solid fa-location-dot"></i>Av. Calle P. Ahí N° 3030</p>
+                        <p class="phone body-c"><i class="fa-solid fa-phone"></i> +03 03456 1234</p>
+                    </div>
+                </article>
+                <article class="card fx-deep-shadow-dinamyc fx-move-up">
+                    <div class="media">
+                        <img class="card-thumbnail" src="./static/img/branchs/shop_a.png" alt="Referencia visual de la sucursal" draggable="false">
+                    </div>
+                    <div class="supporting-text">
+                        <div class="overline">Barrio N° XYZ</div>
+                        <h3 class="title-c">Sucursal C</h3>
+                        <p class="address body-b"><i class="fa-solid fa-location-dot"></i>Av. Calle P. Ahí N° 0033</p>
+                        <p class="phone body-c"><i class="fa-solid fa-phone"></i> +03 03456 3212</p>
+                    </div>
+                </article>
+                <article class="card fx-deep-shadow-dinamyc fx-move-up">
+                    <div class="media">
+                        <img class="card-thumbnail" src="./static/img/branchs/shop_a.png" alt="Referencia visual de la sucursal" draggable="false">
+                    </div>
+                    <div class="supporting-text">
+                        <div class="overline">Barrio N° XYZ</div>
+                        <h3 class="title-c">Sucursal D</h3>
+                        <p class="address body-b"><i class="fa-solid fa-location-dot"></i>Av. Calle P. Ahí N° 3300</p>
+                        <p class="phone body-c"><i class="fa-solid fa-phone"></i> +03 03456 2143</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="social-networks">
+            <div class="headline">
+                <h3 class="title-c">Redes Sociales</h3>
+            </div>
+            <ul class="networks">
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-twitter"></i>MotorShop Oficial</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-facebook"></i>Motorshop-Arg-Oficial</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-instagram"></i>Motorshop-Arg</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-youtube"></i>Motorshop-Channel</a>
+                </li>
+            </ul>
+        </div>
+        <div class="terms-conditions">
+            <div class="headline">
+                <h3 class="title-c">Terminos y Condiciones</h3>
+            </div>
+            <ul class="networks">
+                <li>
+                    <a class="link-a" href="#">Politicas de la Empresa</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#">Politicas de Envío</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#">Compras</a>
+                </li>
+            </ul>
+        </div>
+        <div class="data-fiscal">
+            <div class="headline">
+                <h3 class="title-c">Data Fiscal </h3>
+            </div>
+            <img class="data-fiscal-thumbnail" src="./static/img/qr_afip/data_fiscal.png" alt="QR data fiscal">
+        </div>
+    </footer>
+    <a href="./auth/db/userMethods.js"></a>
+
+    <script></script>
+    <script type="module">
+        import { init, hide } from '../pages/helpers/product/dataDisplayer.js';
+        import {validateInput} from "../pages/helpers/form/utilities/validateInput.js"
+        import {sendMessageEmail} from  "../service/email/sendMessageEmail.js"
+        import {saveLike} from  "./adapters/like/saveLike.js"
+        import {logout} from "./pages/auth/helpers/session/logout.js"
+        window.validateInput = validateInput;
+        window.sendMessageEmail = sendMessageEmail;
+        window.saveLike = saveLike
+        window.logout = logout;
+        window.hide = hide;
+        init();
+    </script>
+</body>
+</html>

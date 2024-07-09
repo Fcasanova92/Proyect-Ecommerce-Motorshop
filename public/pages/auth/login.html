@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/eb7ff40a73.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../../static/styles/style.css">
+
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="../../static/img/favicon/apple-touch-icon.png">
+</head>
+<body>
+    <header>
+        <nav id="primary">
+            <i class="fa-solid fa-motorcycle">LOGO</i>
+            <ul class="menu">
+                <li>
+                    <a class="link-a" href="../../index.html">Productos</a>
+                </li>
+                <li>
+                    <a class="link-a" href="../../index.html#about-us">Sobre Nosotros</a>
+                </li>
+                <li>
+                    <a class="link-a" href="/*">Inicio <i class="fa-solid fa-house-chimney"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="user-session">  
+            <form id="login" class="fx-deep-shadow-static" method="post">
+                <div class="headline">
+                    <h3 class="title-c">Iniciar Sesion</h3>
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                </div>
+                <label class="message" for="email"></label>
+                <input id="email" type="text" oninput="validateInput(event)" placeholder="Email..." data-validate="false" data-form="login">     
+                <label class="message" for="password"></label>
+                <div class="pass">
+                    <input id="password" type="password" oninput="validateInput(event)" placeholder="Password" data-validate="false" data-form="login">
+                    <i id="eye" class="fa-regular fa-eye-slash trigger-b" onclick="passwordVisuality(event)"></i>
+                </div>
+                <button id="send" class="trigger-a" type="submit" data-id="login" onclick="authValidateAndRedirect(event)">Enviar</button>
+                <a class="link-c" href="/registro">No tienes cuenta? Registrate Aqui</a>
+                <label class="message" for="send"></label>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="social-networks">
+            <div class="headline">
+                <h3 class="title-c">Redes:</h3>
+            </div>
+            <ul class="networks">
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-twitter"></i>MotorShop Oficial</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-facebook"></i>Motorshop-Arg-Oficial</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-instagram"></i>Motorshop-Arg</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#"><i class="fa-brands fa-youtube"></i>Motorshop-Channel</a>
+                </li>
+            </ul>
+        </div>
+        <div class="terms-conditions">
+            <div class="headline">
+                <h3 class="title-c">Terminos y Condiciones:</h3>
+            </div>
+            <ul class="networks">
+                <li>
+                    <a class="link-a" href="#">Politicas de la Empresa</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#">Politicas de Envío</a>
+                </li>
+                <li>
+                    <a class="link-a" href="#">Compras</a>
+                </li>
+            </ul>
+        </div>
+        <div class="data-fiscal">
+            <div class="headline">
+                <h3 class="title-c">Data Fiscal </h3>
+            </div>
+            <img class="data-fiscal-thumbnail" src="../../static/img/qr_afip/data_fiscal.png" alt="QR data fiscal">
+        </div>
+    </footer>
+
+    <script type="module">
+        import {validateInput} from "./pages/helpers/form/utilities/validateInput.js"
+        import {authValidateAndRedirect} from  "./pages/auth/helpers/session/authValidateAndRedirect.js"
+        import {passwordVisuality} from "./pages/auth/helpers/styles/passwordVisuality.js"
+        window.validateInput = validateInput;
+        window.authValidateAndRedirect = authValidateAndRedirect;
+        window.passwordVisuality = passwordVisuality
+    </script>
+</body>

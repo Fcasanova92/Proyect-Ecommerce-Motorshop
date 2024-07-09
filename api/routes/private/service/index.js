@@ -1,0 +1,1 @@
+export {router as servicetRouther} from './routes.js'

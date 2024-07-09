@@ -3,7 +3,7 @@ import mysql from 'mysql';
 
 
 config()
-
+const NODE_ENV = process.env.NODE_ENV || 'dev'
 export const pool = mysql.createPool({
   connectionLimit: 10, // Ajusta el límite según tus necesidades
   host:  NODE_ENV === 'prod' ? process.env.PROD_DB_HOST :  process.env.DB_HOST ,

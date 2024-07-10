@@ -1,4 +1,4 @@
-import { URL } from '../../../api/server/url.js';
+import { URL_BACKEND } from '../urlBackend.js';
 import {loadUserComponent, loadUserinfo} from '../../pages/user/index.js'
 
 
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function checkedLogin(){
 
         if(token){
 
-            const response = await axios.get(`${URL}/api/auth/protected`, {
+            const response = await axios.get(`${URL_BACKEND}/api/auth/protected`, {
 
                 headers: {
         

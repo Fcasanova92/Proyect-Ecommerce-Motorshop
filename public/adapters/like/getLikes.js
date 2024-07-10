@@ -1,4 +1,5 @@
-import { URL } from "../../../api/server/url"
+import { URL_BACKEND } from "../urlBackend"
+
 
 export const getLikes = async () => {
 
@@ -6,7 +7,7 @@ export const getLikes = async () => {
    
     try{
 
-        const response =  await axios.get(`${URL}/api/likes/get-likes`, {
+        const response =  await axios.get(`${URL_BACKEND}/api/likes/get-likes`, {
 
             'Content-Type': 'application/json',
 

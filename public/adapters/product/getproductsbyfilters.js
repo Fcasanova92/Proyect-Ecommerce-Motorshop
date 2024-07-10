@@ -1,10 +1,11 @@
-import { URL } from "../../../api/server/url";
+import { URL_BACKEND } from "../urlBackend";
+
 
 export const getproductsbyfilter = async (form) => {
     const data = filterValues(form);
     try{
 
-        const response =  await axios.post(`${URL}/api/product/get-product-filter`, data, {
+        const response =  await axios.post(`${URL_BACKEND}/api/product/get-product-filter`, data, {
 
             'Content-Type': 'application/json'
         })

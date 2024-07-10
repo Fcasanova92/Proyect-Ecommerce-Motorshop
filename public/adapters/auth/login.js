@@ -1,8 +1,10 @@
+import { URL } from "../../../api/server/url";
+
 export const login = async (data) => {
 
     try{
 
-        const response =  await axios.post("https://proyect-ecommerce-motor-d3rb.onrender.com/api/auth/login", data, {
+        const response =  await axios.post(`${URL}/api/auth/login`, data, {
 
             'Content-Type': 'application/json'
         })

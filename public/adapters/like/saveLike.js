@@ -1,3 +1,5 @@
+import { URL } from "../../../api/server/url"
+
 export const saveLike = async (event) => {
 
     const likeSimbol = event.target
@@ -10,7 +12,7 @@ export const saveLike = async (event) => {
    
     try{
 
-        const response =  await axios.post("https://proyect-ecommerce-motor-d3rb.onrender.com/api/likes/save-like", {product_id}, {
+        const response =  await axios.post(`${URL}/api/likes/save-like`, {product_id}, {
 
             'Content-Type': 'application/json',
 

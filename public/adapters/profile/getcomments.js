@@ -1,9 +1,10 @@
+import { URL } from "../../../api/server/url.js";
 import { addNode } from "../../pages/helpers/product/utilities/nodes.js";
 
 const getComments = (data) => {
     return new Promise(async (res,rej)=>{
         try {
-            const resp = await axios.post("https://proyect-ecommerce-motor-d3rb.onrender.com/api/product/get-comment",data, {'Content-Type': 'application/json'});
+            const resp = await axios.post(`${URL}/api/product/get-comment`,data, {'Content-Type': 'application/json'});
             console.log(resp.status)
             if(resp){
                 return res(resp.data);
@@ -18,7 +19,7 @@ const getComments = (data) => {
 const getProduct = (data) => {
     return new Promise(async (res,rej)=>{
         try {
-            const resp = await axios.post("https://proyect-ecommerce-motor-d3rb.onrender.com/api/product/get-product-id",data, {'Content-Type': 'application/json'});
+            const resp = await axios.post(`${URL}/api/product/get-product-id`,data, {'Content-Type': 'application/json'});
             if(resp){
                 return res(resp.data);
             }

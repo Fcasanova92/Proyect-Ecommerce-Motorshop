@@ -1,3 +1,5 @@
+import { URL } from "../../../api/server/url";
+
 export const deleteLike = async (event) => {
 
     const product_id = parseInt(event.target.id)
@@ -12,7 +14,7 @@ export const deleteLike = async (event) => {
 
     try{
 
-        const response =  await axios.delete("https://proyect-ecommerce-motor-d3rb.onrender.com/api/likes/delete-like", {
+        const response =  await axios.delete(`${URL}/api/likes/delete-like`, {
 
             'Content-Type': 'application/json',
 

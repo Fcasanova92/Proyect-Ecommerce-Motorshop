@@ -1,5 +1,5 @@
+import { URL } from '../../../api/server/url.js';
 import {loadUserComponent, loadUserinfo} from '../../pages/user/index.js'
-
 
 
 document.addEventListener("DOMContentLoaded", async function checkedLogin(){
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function checkedLogin(){
 
         if(token){
 
-            const response = await axios.get("https://proyect-ecommerce-motor-d3rb.onrender.com/api/auth/protected", {
+            const response = await axios.get(`${URL}/api/auth/protected`, {
 
                 headers: {
         

@@ -1,8 +1,10 @@
+import { URL } from "../../../api/server/url";
+
 export const getproductsbyfilter = async (form) => {
     const data = filterValues(form);
     try{
 
-        const response =  await axios.post("https://proyect-ecommerce-motor-d3rb.onrender.com/api/product/get-product-filter", data, {
+        const response =  await axios.post(`${URL}/api/product/get-product-filter`, data, {
 
             'Content-Type': 'application/json'
         })

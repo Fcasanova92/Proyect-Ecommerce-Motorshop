@@ -1,6 +1,6 @@
 
 import {addNode, removeNode, addMessage} from '../../pages/helpers/product/utilities/nodes.js';
-import { URL_BACKEND } from '../urlBackend.js';
+import {URL_BACKEND} from '../urlBackend.js'
 
 let petition_in_progress = false;
 

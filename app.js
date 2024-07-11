@@ -14,4 +14,10 @@ dbConnection()
 
 const app =  server()
 
-app.listen(port, ()=> console.log(`Open your browser and visit: http://localhost:${port}/`))
+const NODE_ENV = process.env.NODE_ENV || 'dev'
+
+const URL_PROD = process.env.URL_PROD
+
+const URL_LOCAL = process.env.URL_LOCAL
+
+app.listen(port, ()=> console.log(NODE_ENV === 'dev' ? `${URL_LOCAL}${port}` : URL_PROD))

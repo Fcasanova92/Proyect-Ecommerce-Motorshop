@@ -1,6 +1,4 @@
-import { URL_BACKEND } from "../urlBackend";
-
-
+import {URL_BACKEND} from '../urlBackend.js'
 export const getproductsbyfilter = async (form) => {
     const data = filterValues(form);
     try{

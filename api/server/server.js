@@ -1,14 +1,11 @@
 import express from 'express'
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { config } from 'dotenv';
-
 
 import cors from 'cors'
 import { privateRoutes } from '../routes/index.js';
 import { publicRoute } from '../routes/public/routes.js';
-
-config()
+import { dataRouther } from '../routes/private/data/index.js';
 
 export const server = () => {
 
@@ -37,26 +34,11 @@ export const server = () => {
     }
 }));
 
-    app.get('/data', (req, res) => {
-
-        const port = process.env.PORT
-
-        const NODE_ENV = process.env.NODE_ENV || 'dev'
-
-        const URL_PROD = process.env.URL_PROD
-
-        const URL_LOCAL = process.env.URL_LOCAL
-
-        const url = NODE_ENV === 'dev' ? `${URL_LOCAL}${port}` : URL_PROD
-    ;
-    // Aquí puedes utilizar urlBackend en tu lógica de backend
-    res.json({ url: url });
-    });
-
     const publicRoutes = publicRoute(__filename,  __dirname)
 
     app.use('/api', privateRoutes );
     app.use('/', publicRoutes );
+    app.use('/data', dataRouther)
 
         
     return app

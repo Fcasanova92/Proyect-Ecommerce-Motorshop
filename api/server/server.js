@@ -5,7 +5,6 @@ import { fileURLToPath } from 'url';
 import cors from 'cors'
 import { privateRoutes } from '../routes/index.js';
 import { publicRoute } from '../routes/public/routes.js';
-import { getUrlApp } from '../helpers/data/urlApp.js';
 import { dataRouther } from '../routes/private/data/index.js';
 
 export const server = () => {

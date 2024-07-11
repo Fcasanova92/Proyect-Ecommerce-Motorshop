@@ -2,7 +2,7 @@
 
 import { Router } from 'express';
 
-import { getUrlApp } from '../../../helpers/data/urlApp';
+import { getUrlApp } from '../../../helpers/data/urlApp.js';
 
 export const router = Router();
 

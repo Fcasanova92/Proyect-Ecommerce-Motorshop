@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import cors from 'cors'
 import { privateRoutes } from '../routes/index.js';
 import { publicRoute } from '../routes/public/routes.js';
-import { dataRouther } from '../routes/private/data/index.js';
+
 
 export const server = () => {
 
@@ -38,8 +38,6 @@ export const server = () => {
 
     app.use('/api', privateRoutes );
     app.use('/', publicRoutes );
-    app.use('/data', dataRouther)
-
         
     return app
 }

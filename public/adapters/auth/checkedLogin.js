@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function checkedLogin(){
 
         if(token){
 
-            const response = await axios.get(`${URL_BACKEND}/api/auth/protected`, {
+            const response = await axios.get(`/api/auth/protected`, {
 
                 headers: {
         

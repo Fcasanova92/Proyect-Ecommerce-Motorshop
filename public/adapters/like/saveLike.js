@@ -13,7 +13,7 @@ export const saveLike = async (event) => {
    
     try{
 
-        const response =  await axios.post(`${URL_BACKEND}/api/likes/save-like`, {product_id}, {
+        const response =  await axios.post(`/api/likes/save-like`, {product_id}, {
 
             'Content-Type': 'application/json',
 

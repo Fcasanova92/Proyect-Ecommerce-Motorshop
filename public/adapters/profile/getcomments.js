@@ -5,7 +5,7 @@ import {URL_BACKEND} from '../urlBackend.js'
 const getComments = (data) => {
     return new Promise(async (res,rej)=>{
         try {
-            const resp = await axios.post(`${URL_BACKEND}/api/product/get-comment`,data, {'Content-Type': 'application/json'});
+            const resp = await axios.post(`/api/product/get-comment`,data, {'Content-Type': 'application/json'});
             console.log(resp.status)
             if(resp){
                 return res(resp.data);
@@ -20,7 +20,7 @@ const getComments = (data) => {
 const getProduct = (data) => {
     return new Promise(async (res,rej)=>{
         try {
-            const resp = await axios.post(`${URL_BACKEND}/api/product/get-product-id`,data, {'Content-Type': 'application/json'});
+            const resp = await axios.post(`/api/product/get-product-id`,data, {'Content-Type': 'application/json'});
             if(resp){
                 return res(resp.data);
             }

@@ -15,7 +15,7 @@ export const deleteLike = async (event) => {
 
     try{
 
-        const response =  await axios.delete(`${URL_BACKEND}/api/likes/delete-like`, {
+        const response =  await axios.delete(`/api/likes/delete-like`, {
 
             'Content-Type': 'application/json',
 

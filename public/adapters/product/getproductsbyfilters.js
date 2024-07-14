@@ -3,7 +3,7 @@ export const getproductsbyfilter = async (form) => {
     const data = filterValues(form);
     try{
 
-        const response =  await axios.post(`${URL_BACKEND}/api/product/get-product-filter`, data, {
+        const response =  await axios.post(`/api/product/get-product-filter`, data, {
 
             'Content-Type': 'application/json'
         })

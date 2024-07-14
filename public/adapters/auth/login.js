@@ -5,7 +5,7 @@ export const login = async (data) => {
 
     try{
 
-        const response =  await axios.post(`${URL_BACKEND}/api/auth/login`, data, {
+        const response =  await axios.post(`/api/auth/login`, data, {
 
             'Content-Type': 'application/json'
         })

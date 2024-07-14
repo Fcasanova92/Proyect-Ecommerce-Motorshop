@@ -1,4 +1,4 @@
-import {URL_BACKEND} from '../../adapters/urlBackend.js'
+
 import { setForm } from "../../pages/helpers/form/setForm.js";
 import { getValidateDataform } from "../../pages/helpers/form/validateForm.js"
 
@@ -54,7 +54,7 @@ const serviceEmailSend = async (name, surname, consulta) => {
 
     try{
 
-      const sendEmail = await axios.post(`${URL_BACKEND}/api/service/send`, data, {
+      const sendEmail = await axios.post(`/api/service/send`, data, {
       headers: {
 
         'Content-Type': 'application/json'

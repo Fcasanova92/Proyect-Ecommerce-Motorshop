@@ -1,6 +1,6 @@
 
 import { addNode } from "../../pages/helpers/product/utilities/nodes.js";
-import {URL_BACKEND} from '../urlBackend.js'
+
 
 const getComments = (data) => {
     return new Promise(async (res,rej)=>{

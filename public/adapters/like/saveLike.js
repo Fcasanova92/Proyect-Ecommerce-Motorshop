@@ -1,4 +1,4 @@
-import {URL_BACKEND} from '../urlBackend.js'
+
 
 
 export const saveLike = async (event) => {

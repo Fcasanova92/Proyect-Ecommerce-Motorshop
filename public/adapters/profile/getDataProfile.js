@@ -1,13 +1,13 @@
 
 import {addNode, removeNode, addMessage} from '../../pages/helpers/product/utilities/nodes.js';
-import {URL_BACKEND} from '../urlBackend.js'
+
 
 let petition_in_progress = false;
 
 const getUserData = (token) => {
     return new Promise(async (res, rej)=>{
         try {
-            const resp = await axios.get(`${URL_BACKEND}/api/auth/protected`, {
+            const resp = await axios.get(`/api/auth/protected`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -23,7 +23,7 @@ const passUpdate = async (data) => {
     petition_in_progress = true;
     const token = sessionStorage.getItem("token");
     try {
-        const resp = await axios.patch(`${URL_BACKEND}/api/perfil/update-password`, data, {
+        const resp = await axios.patch(`/api/perfil/update-password`, data, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }

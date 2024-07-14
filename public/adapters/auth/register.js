@@ -1,4 +1,4 @@
-import {URL_BACKEND} from '../urlBackend.js'
+
 
 
 export const register = async (data) => {

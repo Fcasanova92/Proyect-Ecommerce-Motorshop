@@ -1,4 +1,4 @@
-import {URL_BACKEND} from '../urlBackend.js'
+
 import {loadUserComponent, loadUserinfo} from '../../pages/user/index.js'
 
 

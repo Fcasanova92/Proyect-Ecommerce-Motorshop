@@ -12,7 +12,7 @@ const port = process.env.PORT
 
 dbConnection()
 
-const app =  server()
+export const app =  server()
 
 const NODE_ENV = process.env.NODE_ENV || 'dev'
 

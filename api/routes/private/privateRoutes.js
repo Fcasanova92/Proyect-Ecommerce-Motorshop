@@ -4,11 +4,11 @@ import { Router } from 'express';
 
 export const privateRoutes = Router();
 
-import {authRouther} from './private/auth/index.js'
-import {productRouther} from './private/product/index.js';
-import {servicetRouther} from './private/service/index.js';
-import {likeRouther} from './private/likes/index.js'
-import { profileRouther } from './private/user/profile/index.js';
+import {authRouther} from './auth/index.js'
+import {productRouther} from './product/index.js';
+import {servicetRouther} from './service/index.js';
+import {likeRouther} from './likes/index.js'
+import { profileRouther } from './user/profile/index.js';
 
 
 privateRoutes.use('/auth', authRouther );

@@ -3,8 +3,9 @@ import { join } from 'path';
 
 
 import cors from 'cors';
-import { privateRoutes } from '../routes/index.js';
-import { publicRoute } from '../routes/public/routes.js';
+
+import { privateRoutes } from '../routes/private/privateRoutes.js';
+import { publicRouter } from '../routes/public/index.js';
 
 export const server = () => {
     const app = express();
@@ -27,10 +28,9 @@ export const server = () => {
         }
     }));
 
-    const publicRoutes = publicRoute(__filename, __dirname);
 
     app.use('/api', privateRoutes);
-    app.use('/', publicRoutes);
+    app.use('/', publicRouter);
 
     return app;
 };

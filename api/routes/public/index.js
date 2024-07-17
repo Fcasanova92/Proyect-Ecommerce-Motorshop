@@ -1,0 +1,1 @@
+export {router as publicRouter} from './routes.js'

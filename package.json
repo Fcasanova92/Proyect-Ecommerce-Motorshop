@@ -8,7 +8,7 @@
     "build": "echo 'No build step required'",
     "migrate:sync": "node api/db/dbMigration.js",
     "migrate:data": "node api/db/dbDataMigration.js",
-    "test": "jest --verbose"
+    "test": "jest --verbose --silent --detectOpenHandles"
   },
   "author": "",
   "license": "ISC",

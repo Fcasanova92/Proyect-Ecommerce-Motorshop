@@ -7,7 +7,7 @@ import cors from 'cors';
 import { privateRoutes } from '../routes/private/privateRoutes.js';
 import { publicRouter } from '../routes/public/index.js';
 
-export const server = () => {
+export const configServer = () => {
     const app = express();
 
     app.use(cors());
